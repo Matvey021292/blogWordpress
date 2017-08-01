@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Intro-Inline';
+  src: url('../fonts/introInline/Intro-Inline.eot');
+  src: url('../fonts/introInline/Intro-Inline.woff2') format('woff2'),
+       url('../fonts/introInline/Intro-Inline.woff') format('woff'),
+       url('../fonts/introInline/Intro-Inline.ttf') format('truetype'),
+       url('../fonts/introInline/Intro-Inline.svg#Intro-Inline') format('svg'),
+       url('../fonts/introInline/Intro-Inline.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
