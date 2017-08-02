@@ -23,7 +23,19 @@ require( trailingslashit(get_template_directory() ) . 'template/theme-options.ph
  * @package WordPress
  * @subpackage your-clean-template-3
  */
-
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)>=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }           
+  $content = preg_replace('/\[.+\]/','', $content);
+  $content = apply_filters('the_content', $content);
+  $content = str_replace(']]>', ']]&gt;', $content);
+  return $content;
+}
 add_theme_support('title-tag'); // теперь тайтл управляется самим вп
 
 register_nav_menus(array( // Регистрируем 2 меню
@@ -32,7 +44,7 @@ register_nav_menus(array( // Регистрируем 2 меню
 
 add_theme_support('post-thumbnails'); // включаем поддержку миниатюр
 set_post_thumbnail_size(250, 150); // задаем размер миниатюрам 250x150
-add_image_size('big-thumb', 400, 400, true); // добавляем еще один размер картинкам 400x400 с обрезкой
+add_image_size('big-thumb', 80, 100, true); // добавляем еще один размер картинкам 400x400 с обрезкой
 
 register_sidebar(array( // регистрируем левую колонку, этот кусок можно повторять для добавления новых областей для виджитов
 	'name' => 'Сайдбар', // Название в админке
@@ -184,7 +196,10 @@ if (!function_exists('content_class_by_sidebar')) { // если ф-я уже е�
 		}
 	}
 }
+remove_filter( 'the_content', 'wp_make_content_images_responsive' );
 remove_filter( 'the_content', 'wpautop' ); // Отключаем автоформатирование в полном посте
 remove_filter( 'the_excerpt', 'wpautop' ); // Отключаем автоформатирование в кратком(анонсе) посте
 remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
+
+
 ?>

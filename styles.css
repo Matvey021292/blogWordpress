@@ -3838,6 +3838,9 @@ html, body {
             background-size: cover !important;
             margin-top: 0 !important;
             background-repeat: no-repeat !important; }
+            .blog-content .one_bloc > .blog-content .blog-content .blog-content-news .flex-container #img_news > img{
+    height:100% !important;
+            }
           .blog-content .one_bloc > .blog-content .blog-content .blog-content-news .flex-container h4 {
             -webkit-box-flex: 1;
             -ms-flex: 1 1 30%;
@@ -3887,16 +3890,17 @@ html, body {
   }
   .blog-content a {
     color: #000; }
-  .blog-content .more {
+  .blog-content a.more-link.effect-shine {
     font-family: "Oswald", sans-serif;
     font-weight: bold;
-    float: right;
+    display:block;
     font-weight: bold;
     margin: 0 10px 10px 0;
-    padding: 0 5px 10px 11px;
+    padding: 0 5px 10px 0px;
     -webkit-transition: all .5s;
     -o-transition: all .5s;
     transition: all .5s;
+    margin:10px 0;
     border-right: 10px solid #243B55;
     border-bottom: 1px solid #243B55; }
   .blog-content .flex-container {
@@ -4009,6 +4013,7 @@ html, body {
       box-shadow: 0 15px 10px #777; }
       .blog-content .blog-content-news p{
         font-size:0.8em;
+        padding:0 15% 0 0;
       }
     .blog-content .blog-content-news:hover.efect:after {
       right: 10px;
@@ -4810,7 +4815,9 @@ figure.effect-roxy img {
   transition: opacity 0.35s, transform 0.35s;
   transition: opacity 0.35s, transform 0.35s, -webkit-transform 0.35s;
   -webkit-transform: translate3d(-50px, 0, 0);
-  transform: translate3d(-50px, 0, 0); }
+  transform: translate3d(-50px, 0, 0);
+    height:50% !important; }
+
 
 figure.effect-roxy figcaption::before {
   position: absolute;

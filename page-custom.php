@@ -64,16 +64,8 @@ $sliders_main = get_post_meta( $post->ID, 'main_slider_list', true );
 	                               <div class="flex-container">
 	                               <div class="grid">
                             <figure class="effect-roxy">
-                                <img src="img/logo5.jpg" alt="img14" />
-                            </figure>
-                        </div>
-                        <ul class="social-logo-icon">
-                            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook-square" aria-hidden="true"></i></i></a></li>
-                            <li><a href=""><i class="fa fa-foursquare" aria-hidden="true"></i></a></li>
-                            <li><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i></a></li>
-                            <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
+                             
+                            
 			   <?php $art_posts = array(
 				'orderby'      => 'name',
 				'order'        => 'ASC',
@@ -85,17 +77,56 @@ $sliders_main = get_post_meta( $post->ID, 'main_slider_list', true );
 	// полный список параметров смотрите в описании функции http://wp-kama.ru/function/get_terms
 ); 
 			$query = new WP_Query($art_posts);
+			global $more;
 
 	   ?>
 	   
 	   			<?php if ($query-> have_posts() ) while ( $query-> have_posts() ) : $query-> the_post(); // старт цикла ?>
+
+	   				<?php the_post_thumbnail('full') ?>
+	   				</figure>
+                        </div>
+                        <ul class="social-logo-icon">
+                            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook-square" aria-hidden="true"></i></i></a></li>
+                            <li><a href=""><i class="fa fa-foursquare" aria-hidden="true"></i></a></li>
+                            <li><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i></a></li>
+                            <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>		
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <?php // контэйнер с классами и id ?>
-					<?php var_dump(the_post_thumbnail());?>
-					<h4><a  class="effect-shine" href=""><?php the_title(); ?></a></h4>
-					<p></p>
+					<h4><a  class="effect-shine" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 					</article>
+					<p><?php $more = 0; ?>
+                    			<?php the_content('Читать....') ?>
+						   <?php $art_posts_news = array(
+				'orderby'      => 'name',
+				'order'        => 'ASC',
+				'posts_per_page'=> 3,
+				'post_type' =>'post',
+				'post_status'=> 'publish',
+				'cat' =>$cat -> cat_ID,
+
+	// полный список параметров смотрите в описании функции http://wp-kama.ru/function/get_terms
+); 
+			$query_new = new WP_Query($art_posts_news);
+
+	   ?>
+
 					</div>
+					      <div class="blog-content">
+					      <?php if ($query_new-> have_posts() ) while ( $query_new-> have_posts() ) : $query_new-> the_post(); // старт цикла ?>
+                    <div class="blog-content-news effect6">
+                        <div class="flex-container">
+                            <a href="<?php the_permalink(); ?>" class="img" id="img_news">	<?php the_post_thumbnail('full') ?></a>
+                            <h4><a  class="effect-shine" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+                        </div>
+                    </div>
+   		 <?php endwhile; wp_reset_postdata(); // конец цикла ?>
+                </div>
+
 					</div>
+
+
 			
 
 				<?php endwhile; wp_reset_postdata(); // конец цикла ?>
