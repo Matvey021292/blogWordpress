@@ -6,10 +6,9 @@
  */
 ?>
 	<footer>
-		 <div id="topNubex"><i style="color:#34b484" class="fa fa-arrow-circle-o-up fa-3x" aria-hidden="true"></i>
-    <div class="pulse1"></div>
-    <div class="pulse2"></div>
-    <div class="icon"></div>
+
+		 <div id="topNubex" ><i style="color:#fff" class="fa fa-arrow-circle-o-up fa-4x" aria-hidden="true"></i>
+
 </div>
 <div id="footernav">
     <?php    /**

@@ -141,8 +141,7 @@ $(function(){
 
 
 
-
-jQuery(window).resize(function($){
+$(window).resize(function(){
     var windSize =  $(window).width();
     if (windSize<800) {
       $('#show').removeClass('effect6');
@@ -151,17 +150,16 @@ jQuery(window).resize(function($){
     }
   });
 
-  
+
 
 // add class bottom main
 
-jQuery(window).ready(function($){
+$(window).ready(function(){
     $('.mainBootoom').children('li').addClass('button button--antiman button--inverted button--border-thin button--text-thick button--size-m');
   });
 
-jQuery(window).ready(function($){
+$(window).ready(function(){
     $('a').addClass('effect-shine');
-    $('i').parent('a').removeClass('effect-shine');
   });
 
 (function() {
@@ -227,3 +225,9 @@ jQuery(window).ready(function($){
           bttn.addEventListener( 'click', function( ev ) { ev.preventDefault(); } );
         } );
       })();
+// gallery
+
+    new CBPGridpageGallery( document.getElementById( 'grid-gallery' ) );
+
+
+

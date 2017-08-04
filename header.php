@@ -29,9 +29,9 @@
 	<header style="background-image:url('<?php echo ot_get_option( 'logo_upload'); ?>')">
     <section class="form">
     <div class="mockup-content">
-                    <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed">
+                    <div class="morph-button morph-button-modal morph-button-modal-2 morph-button-fixed ">
                      <?php  if(ot_get_option('header_feedback_on_off') != 'off') { ?>
-                        <button class="" type="button"><a href="#header_feedback_form" class="feedback-form"><i class="fa-3x fa fa-phone" aria-hidden="true"></i></i></a></button>
+                        <button class="pulse-button" type="button"><a href="#header_feedback_form" class="pulse-buttonfeedback-form"><i class="fa-3x fa fa-phone " aria-hidden="true"></i></i></a></button>
                         <?php } ?>
                         <div class="morph-content">
                             <div>
