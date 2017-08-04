@@ -93,11 +93,14 @@ TxtRotate.prototype.tick = function() {
 // Normal Clicks
 $(function() {
   $('#responsrightTitle').click(function() {
-    $('#show').toggleClass('show-nav');
+    $('#asideRight').toggleClass('asideRight');
      return false;
   });
+    $(".closeasideRight").click(function () {
+        $('#asideRight').removeClass('asideRight');
+        return false;
+    })
 
-  
 });
 
 
@@ -112,7 +115,10 @@ $(function() {
     $('#asideLeft').toggleClass('asideLeft');
      return false;
   });
- 
+ $(".closeaside").click(function () {
+     $('#asideLeft').removeClass('asideLeft');
+     return false;
+ })
   
 });
 
@@ -144,9 +150,11 @@ $(function(){
 $(window).resize(function(){
     var windSize =  $(window).width();
     if (windSize<800) {
-      $('#show').removeClass('effect6');
+      $('#asideRight').removeClass('effect6');
+        $('#asideRight').find('figure').removeClass('effect-roxy');
     }if(windSize<600){
-      $('#show_block').removeClass('effect6');
+      $('#asideLeft').removeClass('effect6');
+      $('#asideLeft').find('figure').removeClass('effect-roxy');
     }
   });
 

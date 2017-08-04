@@ -7,7 +7,7 @@
 get_header(); // подключаем header.php ?> 
 <section>
     <h2 id="title"><?php single_cat_title(); // название категории ?></h2>
-    <div class="content postSection">
+    <div class="content postSection postContent">
         <!-- Центальный блок -->
         <div class="blog-content " id="headfside">
 
