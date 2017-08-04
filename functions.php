@@ -46,8 +46,8 @@ add_theme_support('post-thumbnails'); // включаем поддержку м�
 set_post_thumbnail_size(250, 150); // задаем размер миниатюрам 250x150
 add_image_size('big-thumb', 80, 100, true); // добавляем еще один размер картинкам 400x400 с обрезкой
 
-register_sidebar(array( // регистрируем левую колонку, этот кусок можно повторять для добавления новых областей для виджитов
-    'name' => 'Сайдбар', // Название в админке
+register_sidebars($number = 2,array( // регистрируем левую колонку, этот кусок можно повторять для добавления новых областей для виджитов
+    'name' => 'Сайдбар %d', // Название в админке
     'id' => "sidebar", // идентификатор для вызова в шаблонах
     'description' => 'Обычная колонка в сайдбаре', // Описалово в админке
     'before_widget' => '', // разметка до вывода каждого виджета
@@ -56,7 +56,7 @@ register_sidebar(array( // регистрируем левую колонку, �
     'after_title' => "</span>\n", //  разметка после вывода заголовка виджета
 ));
 
-register_sidebar(1);
+
 
 if (!class_exists('clean_comments_constructor')) { // если класс уже есть в дочерней теме - нам не надо его определять
     class clean_comments_constructor extends Walker_Comment
@@ -225,37 +225,37 @@ remove_filter('the_content', 'wpautop'); // Отключаем автоформ�
 remove_filter('the_excerpt', 'wpautop'); // Отключаем автоформатирование в кратком(анонсе) посте
 remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
 
-//function sidebar_news_func($atts)
-//{
-//    wp_reset_query();
-//    $art_posts = array(
-//        'orderby' => 'date',
-//        'order' => 'ASC',
-//        'posts_per_page' => 5,
-//        'post_type' => 'post',
-//    );
-//    $query = new WP_Query($art_posts);
-//    $output = "<h5 class='titleaside'>{$atts['title']}</h5>";
-//    if ($query->have_posts()) {
-//        while ($query->have_posts()) {
-//            $query->the_post();
-//            $output .= '<div class="blog-content-news  ">';
-//            $output .= '<h3 ><a  href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
-//                <div class="flex-container">
-//                    <div class="grid">
-//                        <figure class="effect-roxy">' . get_the_post_thumbnail() . '</figure>
-//                    </div>
-//                </div>
-//                <a class="more " href="' . get_the_permalink() . '">Читать...</a>
-//            </div>';
-//        }
-//    }
-//    wp_reset_postdata();
-//    ?>
-<!---->
-<!--    --><?php
-//    return $output;
-//}
-//
-//add_shortcode('sidebar_news', 'sidebar_news_func');
-//?>
+function sidebar_news_func($atts)
+{
+    wp_reset_query();
+    $art_posts = array(
+        'orderby' => 'date',
+        'order' => 'ASC',
+        'posts_per_page' => 5,
+        'post_type' => 'post',
+    );
+    $query = new WP_Query($art_posts);
+    $output = "<h5 class='titleaside'>{$atts['title']}</h5>";
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $output .= '<div class="blog-content-news  ">';
+            $output .= '<h3 ><a  href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
+                <div class="flex-container">
+                    <div class="grid">
+                        <figure class="effect-roxy">' . get_the_post_thumbnail() . '</figure>
+                    </div>
+                </div>
+                <a class="more " href="' . get_the_permalink() . '">Читать...</a>
+            </div>';
+        }
+    }
+    wp_reset_postdata();
+    ?>
+
+    <?php
+    return $output;
+}
+
+add_shortcode('sidebar_news', 'sidebar_news_func');
+?>

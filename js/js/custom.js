@@ -109,7 +109,7 @@ $(document).keyup(function(e) {
 });
 $(function() {
   $('#responsleftTitle').click(function() {
-    $('#show_block').toggleClass('show_block');
+    $('#asideLeft').toggleClass('asideLeft');
      return false;
   });
  
