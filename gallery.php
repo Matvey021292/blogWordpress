@@ -31,11 +31,10 @@
                     ?>
                 </ul>
                 <div class="nav">
-                    <span class="icon nav-prev"></span>
-                    <span class="icon nav-next"></span>
-                    <span class="icon nav-close"></span>
+                    <span class="icon nav-prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+                    <span class="icon nav-next"><i class="fa fa-arrow-right" aria-hidden="true"></i></span>
+                    <span class="icon nav-close"><i class="fa fa-times" aria-hidden="true"></i></span>
                 </div>
-                <div class="info-keys icon">Navigate with arrow keys</div>
             </section><!-- // slideshow -->
         </div><!-- // gridpage-gallery -->
     </div>

@@ -5,10 +5,12 @@
  * @subpackage your-clean-template-3
  */
 ?>
-<form role="search" method="get" class="search-form form-inline" action="<?php echo home_url( '/' ); ?>">
-	<div class="form-group">
-		<label class="sr-only" for="search-field">Поиск</label>
-		<input type="search" class="form-control input-sm" id="search-field" placeholder="Строка для поиска" value="<?php echo get_search_query() ?>" name="s">
-	</div>
-	<button type="submit" class="btn btn-default btn-sm">Искать</button>
-</form>
+<div id="sb-search" class="sb-search">
+    <form action="<?php echo home_url( '/' ); ?>">
+        <input class="sb-search-input" placeholder="поиск..." type="text" value="<?php echo get_search_query() ?>" name="s" id="search">
+        <input class="sb-search-submit" type="submit" value="">
+        <span class="sb-icon-search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </span>
+    </form>
+</div>

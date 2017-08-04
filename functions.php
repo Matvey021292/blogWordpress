@@ -56,6 +56,8 @@ register_sidebar(array( // регистрируем левую колонку, �
     'after_title' => "</span>\n", //  разметка после вывода заголовка виджета
 ));
 
+register_sidebar(1);
+
 if (!class_exists('clean_comments_constructor')) { // если класс уже есть в дочерней теме - нам не надо его определять
     class clean_comments_constructor extends Walker_Comment
     { // класс, который собирает всю структуру комментов
@@ -160,6 +162,8 @@ if (!function_exists('add_scripts')) { // если ф-я уже есть в до
         wp_enqueue_script('gallerymasonry', get_template_directory_uri() . '/js/js/gallery/masonry.pkgd.min.js', '', '', true); //gallery
         wp_enqueue_script('galleryclassie', get_template_directory_uri() . '/js/js/gallery/classie.js', '', '', true); //gallery
         wp_enqueue_script('gallery', get_template_directory_uri() . '/js/js/gallery/cbpGridGallery.js', '', '', true); //gallery
+        wp_enqueue_script('searchcustom', get_template_directory_uri() . '/js/js/search/modernizr.customSearch.js', '', '', true); //gallery
+        wp_enqueue_script('search', get_template_directory_uri() . '/js/js/search/classieSearch.js', '', '', true); //gallery
         wp_enqueue_script('custom', get_template_directory_uri() . '/js/js/custom.js', '', '', true); //lloader
 
     }
@@ -221,37 +225,37 @@ remove_filter('the_content', 'wpautop'); // Отключаем автоформ�
 remove_filter('the_excerpt', 'wpautop'); // Отключаем автоформатирование в кратком(анонсе) посте
 remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
 
-function sidebar_news_func($atts)
-{
-    wp_reset_query();
-    $art_posts = array(
-        'orderby' => 'date',
-        'order' => 'ASC',
-        'posts_per_page' => 5,
-        'post_type' => 'post',
-    );
-    $query = new WP_Query($art_posts);
-    $output = "<h5 class='titleaside'>{$atts['title']}</h5>";
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $output .= '<div class="blog-content-news  ">';
-            $output .= '<h3 ><a  href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
-                <div class="flex-container">
-                    <div class="grid">
-                        <figure class="effect-roxy">' . get_the_post_thumbnail() . '</figure>
-                    </div>
-                </div>
-                <a class="more " href="' . get_the_permalink() . '">Читать...</a>
-            </div>';
-        }
-    }
-    wp_reset_postdata();
-    ?>
-
-    <?php
-    return $output;
-}
-
-add_shortcode('sidebar_news', 'sidebar_news_func');
-?>
+//function sidebar_news_func($atts)
+//{
+//    wp_reset_query();
+//    $art_posts = array(
+//        'orderby' => 'date',
+//        'order' => 'ASC',
+//        'posts_per_page' => 5,
+//        'post_type' => 'post',
+//    );
+//    $query = new WP_Query($art_posts);
+//    $output = "<h5 class='titleaside'>{$atts['title']}</h5>";
+//    if ($query->have_posts()) {
+//        while ($query->have_posts()) {
+//            $query->the_post();
+//            $output .= '<div class="blog-content-news  ">';
+//            $output .= '<h3 ><a  href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
+//                <div class="flex-container">
+//                    <div class="grid">
+//                        <figure class="effect-roxy">' . get_the_post_thumbnail() . '</figure>
+//                    </div>
+//                </div>
+//                <a class="more " href="' . get_the_permalink() . '">Читать...</a>
+//            </div>';
+//        }
+//    }
+//    wp_reset_postdata();
+//    ?>
+<!---->
+<!--    --><?php
+//    return $output;
+//}
+//
+//add_shortcode('sidebar_news', 'sidebar_news_func');
+//?>

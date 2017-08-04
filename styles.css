@@ -7326,16 +7326,6 @@ No space - remove distance between list items
 
 /*galllery*/
 
-@font-face {
-  font-family: 'fontawesome';
-  src:url('../fonts/fontawesome/fontawesome.eot?-e43dk9');
-  src:url('../fonts/fontawesome/fontawesome.eot?#iefix-e43dk9') format('embedded-opentype'),
-  url('../fonts/fontawesome/fontawesome.woff?-e43dk9') format('woff'),
-  url('../fonts/fontawesome/fontawesome.ttf?-e43dk9') format('truetype'),
-  url('../fonts/fontawesome/fontawesome.svg?-e43dk9#fontawesome') format('svg');
-  font-weight: normal;
-  font-style: normal;
-} /* Made with http://icomoon.io/app */
 
 /* General style */
 .gridpage-gallery ul {
@@ -7391,7 +7381,7 @@ No space - remove distance between list items
 
 .gridpage figcaption {
   background: #e4e4e4;
-  padding: 25px;
+  padding: 20px;
 }
 
 /* Slideshow style */
@@ -7475,15 +7465,12 @@ No space - remove distance between list items
 
 .slideshow figure {
   width: 100%;
-  height: 100%;
   background: #fff;
   border: 50px solid #fff;
   overflow: hidden;
 }
 
-.slideshow figcaption {
-  padding-bottom: 20px;
-}
+
 
 .slideshow figcaption h3 {
   font-weight: 300;
@@ -7513,10 +7500,10 @@ No space - remove distance between list items
 }
 
 .slideshow .nav span.nav-close {
-  top: 0;
-  right: 0;
+  top: 0%;
+  left: 0%;
   padding: 0.5em 1em;
-  color: #31373a;
+  color: #fff;
 }
 
 .icon:before,
@@ -7533,15 +7520,15 @@ No space - remove distance between list items
 }
 
 span.nav-prev:before {
-  content: "\e601";
+  content: "";
 }
 
 span.nav-next:before  {
-  content: "\e600";
+  content: "";
 }
 
 span.nav-close:before {
-  content: "\e602";
+  content: "";
 }
 
 /* Info on arrow key navigation */
@@ -7627,6 +7614,118 @@ span.nav-close:before {
 }
 /*gellery*/
 
+
+
+/*search*/
+/* Search icon by IcoMoon, made with http://icomoon.io/app/ */
+
+.sb-search {
+  position: relative;
+  margin-top: 10px;
+  width: 0%;
+  min-width: 60px;
+  height: 60px;
+  float: right;
+  overflow: hidden;
+  -webkit-transition: width 0.3s;
+  -moz-transition: width 0.3s;
+  transition: width 0.3s;
+  -webkit-backface-visibility: hidden;
+}
+
+.sb-search-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  outline: none;
+  background: #fff;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  z-index: 10;
+  padding: 20px 65px 20px 20px;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+.sb-search-input::-webkit-input-placeholder {
+  color: #efb480;
+}
+
+.sb-search-input:-moz-placeholder {
+  color: #efb480;
+}
+
+.sb-search-input::-moz-placeholder {
+  color: #efb480;
+}
+
+.sb-search-input:-ms-input-placeholder {
+  color: #efb480;
+}
+
+.sb-icon-search,
+.sb-search-submit  {
+  width: 60px;
+  height: 60px;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  line-height: 60px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sb-search-submit {
+  background: #fff; /* IE needs this */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"; /* IE 8 */
+  filter: alpha(opacity=0); /* IE 5-7 */
+  opacity: 0;
+  color: transparent;
+  border: none;
+  outline: none;
+  z-index: -1;
+}
+
+.sb-icon-search {
+  color: #fff !important;
+  background: #243b55;
+  z-index: 90;
+  font-size: 22px;
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sb-icon-search:before {
+  content: "";
+}
+
+/* Open state */
+.sb-search.sb-search-open,
+.no-js .sb-search {
+  width: 100%;
+}
+
+.sb-search.sb-search-open .sb-icon-search,
+.no-js .sb-search .sb-icon-search {
+  background: #34b484;
+  color: #fff;
+  z-index: 11;
+}
+
+.sb-search.sb-search-open .sb-search-submit,
+.no-js .sb-search .sb-search-submit {
+  z-index: 90;
+}
 
 
 

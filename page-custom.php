@@ -147,6 +147,7 @@ get_header(); // подключаем header.php ?>
             </div>
             <?php get_sidebar(); // подключаем sidebar.php ?>
         </div>
+
         <section>
             <?php include'gallery.php'?>
         </section>
@@ -159,7 +160,7 @@ get_header(); // подключаем header.php ?>
                     <figcaption>
                         <h2><?php echo ot_get_option( 'about_text_head'); ?></h2>
                         <p><?php echo ot_get_option( 'about_text_info'); ?></p>
-                        <a href="#">View more</a>
+
                     </figcaption>
                 </figure></div>
         </div>
