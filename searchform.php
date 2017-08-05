@@ -6,7 +6,7 @@
  */
 ?>
 <div class="content search ">
-    <div class="breadcrumb">
+    <div class="breadcrumbs">
         <?php kama_breadcrumbs() ?>
     </div>
 <div id="sb-search" class="sb-search">

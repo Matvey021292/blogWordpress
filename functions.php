@@ -242,7 +242,7 @@ function sidebar_news_func($atts)
             $output .= '<div class="blog-content-news  ">';
             $output .= '<h3 ><a  href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
                 <div class="flex-container">
-                    <div class="grid">
+                    <div class="">
                         <figure class=>' . get_the_post_thumbnail() . '</figure>
                     </div>
                 </div>
@@ -267,14 +267,14 @@ add_shortcode('sidebar_news', 'sidebar_news_func');
 /**
  * Хлебные крошки для WordPress (breadcrumbs)
  *
- * @param  string [$sep  = '']      Разделитель. По умолчанию ' » '
+ * @param  string [$sep  = '']      Разделитель. По умолчанию '  '
  * @param  array  [$l10n = array()] Для локализации. См. переменную $default_l10n.
  * @param  array  [$args = array()] Опции. См. переменную $def_args
  * @return string Выводит на экран HTML код
  *
  * version 3.3.1
  */
-function kama_breadcrumbs( $sep = ' » ', $l10n = array(), $args = array() ){
+function kama_breadcrumbs( $sep = ' ', $l10n = array(), $args = array() ){
     $kb = new Kama_Breadcrumbs;
     echo $kb->get_crumbs( $sep, $l10n, $args );
 }
@@ -305,7 +305,7 @@ class Kama_Breadcrumbs {
         'on_front_page'   => true,  // выводить крошки на главной странице
         'show_post_title' => true,  // показывать ли название записи в конце (последний элемент). Для записей, страниц, вложений
         'show_term_title' => true,  // показывать ли название элемента таксономии в конце (последний элемент). Для меток, рубрик и других такс
-        'title_patt'      => '<span class="kb_title">%s</span>', // шаблон для последнего заголовка. Если включено: show_post_title или show_term_title
+        'title_patt'      => '<span class="current"> <a href="#">%s</a></span>', // шаблон для последнего заголовка. Если включено: show_post_title или show_term_title
         'last_sep'        => true,  // показывать последний разделитель, когда заголовок в конце не отображается
         'markup'          => 'schema.org', // 'markup' - микроразметка. Может быть: 'rdf.data-vocabulary.org', 'schema.org', '' - без микроразметки
         // или можно указать свой массив разметки:
@@ -332,7 +332,7 @@ class Kama_Breadcrumbs {
         $loc = (object) array_merge( apply_filters('kama_breadcrumbs_default_loc', self::$l10n ), $l10n );
         $arg = (object) array_merge( apply_filters('kama_breadcrumbs_default_args', self::$args ), $args );
 
-        $arg->sep = '<span class="kb_sep">'. $arg->sep .'</span>'; // дополним
+
 
         // упростим
         $sep = & $arg->sep;
@@ -344,20 +344,20 @@ class Kama_Breadcrumbs {
 
             // Разметка по умолчанию
             if( ! $mark ) $mark = array(
-                'wrappatt'  => '<div class="kama_breadcrumbs">%s</div>',
-                'linkpatt'  => '<a href="%s">%s</a>',
+                'wrappatt'  => '<div id="breadcrumbs-two" class="kama_breadcrumbs ">%s</div>',
+                'linkpatt'  => '<a href="%s ">%s</a>',
                 'sep_after' => '',
             );
             // rdf
             elseif( $mark === 'rdf.data-vocabulary.org' ) $mark = array(
-                'wrappatt'   => '<div class="kama_breadcrumbs" prefix="v: http://rdf.data-vocabulary.org/#">%s</div>',
-                'linkpatt'   => '<span typeof="v:Breadcrumb"><a href="%s" rel="v:url" property="v:title">%s</a>',
+                'wrappatt'   => '<div id="breadcrumbs-two" class="kama_breadcrumbs " prefix="v: http://rdf.data-vocabulary.org/#">%s</div>',
+                'linkpatt'   => '<span typeof="v:Breadcrumb "><a href="%s" rel="v:url" property="v:title">%s</a>',
                 'sep_after'  => '</span>', // закрываем span после разделителя!
             );
             // schema.org
             elseif( $mark === 'schema.org' ) $mark = array(
-                'wrappatt'   => '<div class="kama_breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">%s</div>',
-                'linkpatt'   => '<span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="%s" itemprop="item"><span itemprop="name">%s</span></a></span>',
+                'wrappatt'   => '<div id="breadcrumbs-two" class="kama_breadcrumbs " itemscope itemtype="http://schema.org/BreadcrumbList">%s</div>',
+                'linkpatt'   => '<span itemprop="itemListElement " itemscope itemtype="http://schema.org/ListItem"><a href="%s" itemprop="item"><span itemprop="name">%s</span></a></span>',
                 'sep_after'  => '',
             );
 
@@ -643,22 +643,6 @@ class Kama_Breadcrumbs {
 
 }
 
-/**
- * Изменения:
- * 3.3 - новые хуки: attachment_tax_crumbs, post_tax_crumbs, term_tax_crumbs. Позволяют дополнить крошки таксономий.
- * 3.2 - баг с разделителем, с отключенным 'show_term_title'. Стабилизировал логику.
- * 3.1 - баг с esc_html() для заголовка терминов - с тегами получалось криво...
- * 3.0 - Обернул в класс. Добавил опции: 'title_patt', 'last_sep'. Доработал код. Добавил пагинацию для постов.
- * 2.5 - ADD: Опция 'show_term_title'
- * 2.4 - Мелкие правки кода
- * 2.3 - ADD: Страница записей, когда для главной установлена отделенная страница.
- * 2.2 - ADD: Link to post type archive on taxonomies page
- * 2.1 - ADD: $sep, $loc, $args params to hooks
- * 2.0 - ADD: в фильтр 'kama_breadcrumbs_home_after' добавлен четвертый аргумент $ptype
- * 1.9 - ADD: фильтр 'kama_breadcrumbs_default_loc' для изменения локализации по умолчанию
- * 1.8 - FIX: заметки, когда в рубрике нет записей
- * 1.7 - Улучшена работа с приоритетными таксономиями.
- */
 //Коментарии
 function dp_recent_comments() {
     $comment_len = 100;
@@ -687,99 +671,3 @@ function dp_recent_comments() {
 }
 //Коментарии
 
-function your_widget_display($args) {
-echo "<h5>Комментарии</h5>";
-   echo  dp_recent_comments();
-}
-
-wp_register_sidebar_widget(
-    'your_widget_1',        // ID виджета
-    'Виджет коментариев',           // Заголовок виджета
-    'your_widget_display',  // Функция обратного вызова
-    array(                  // Настройки
-        'description' => 'Виджет коментариев',
-    )
-);
-?>
-
-<?php
-class trueTopPostsWidget extends WP_Widget {
-
-    /*
-     * создание виджета
-     */
-    function __construct() {
-        parent::__construct(
-            'true_top_widget',
-            'Популярные посты', // заголовок виджета
-            array( 'description' => 'Позволяет вывести посты, отсортированные по количеству комментариев в них.' ) // описание
-        );
-    }
-
-    /*
-     * фронтэнд виджета
-     */
-    public function widget( $args, $instance ) {
-        $title = apply_filters( 'widget_title', $instance['title'] ); // к заголовку применяем фильтр (необязательно)
-        $posts_per_page = $instance['posts_per_page'];
-
-        echo $args['before_widget'];
-
-        if ( ! empty( $title ) )
-            echo $args['before_title'] . $title . $args['after_title'];
-
-        $q = new WP_Query("posts_per_page=$posts_per_page&orderby=comment_count");
-        if( $q->have_posts() ):
-            ?><ul><?php
-            while( $q->have_posts() ): $q->the_post();
-
-            ?><a href="<?php the_permalink() ?>"><?php echo get_the_post_thumbnail();?></a>
-                <li><a href="<?php the_permalink() ?>"><?php the_title() ?></a></li><?php
-            endwhile;
-            ?></ul><?php
-        endif;
-        wp_reset_postdata();
-
-        echo $args['after_widget'];
-    }
-
-    /*
-     * бэкэнд виджета
-     */
-    public function form( $instance ) {
-        if ( isset( $instance[ 'title' ] ) ) {
-            $title = $instance[ 'title' ];
-        }
-        if ( isset( $instance[ 'posts_per_page' ] ) ) {
-            $posts_per_page = $instance[ 'posts_per_page' ];
-        }
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>">Заголовок</label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-        </p>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'posts_per_page' ); ?>">Количество постов:</label>
-            <input id="<?php echo $this->get_field_id( 'posts_per_page' ); ?>" name="<?php echo $this->get_field_name( 'posts_per_page' ); ?>" type="text" value="<?php echo ($posts_per_page) ? esc_attr( $posts_per_page ) : '5'; ?>" size="3" />
-        </p>
-        <?php
-    }
-
-    /*
-     * сохранение настроек виджета
-     */
-    public function update( $new_instance, $old_instance ) {
-        $instance = array();
-        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-        $instance['posts_per_page'] = ( is_numeric( $new_instance['posts_per_page'] ) ) ? $new_instance['posts_per_page'] : '5'; // по умолчанию выводятся 5 постов
-        return $instance;
-    }
-}
-
-/*
- * регистрация виджета
- */
-function true_top_posts_widget_load() {
-    register_widget( 'trueTopPostsWidget' );
-}
-add_action( 'widgets_init', 'true_top_posts_widget_load' );

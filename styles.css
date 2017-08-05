@@ -2946,6 +2946,7 @@ nav .button {
   width: 100%;
   margin-top: 200px;
   font-size: 20px;
+  position: relative;
 
   color: #333; }
 
@@ -3432,6 +3433,7 @@ overflow: hidden}
       overflow: auto;
   }
 .content #asideRight.asideRight{
+
     right: 0;
     width: 100%;
   top:0;
@@ -3471,10 +3473,13 @@ overflow: hidden}
   order: 1;
   padding: 2%;
 
+  top: 0;
+
 }
 @media(max-width: 800px){
   .content #asideRight{
-    right:-100%;
+    right:-150%;
+    position: absolute;
   }
 }
 .content .closeaside{
@@ -7561,8 +7566,7 @@ span.nav-close:before {
     background: #eee;
     margin:0 !important;
   }
-  .textwidget {
-    padding: 10%;
+  #asideLeft {
     border: 10px solid #243b55;
   }
 }
@@ -7589,9 +7593,93 @@ h5.sidebat_title {
 li{
   list-style: none;
 }
+#breadcrumbs-two{
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  bottom: 25%;
+  flex-wrap: wrap;
+}
 
+#breadcrumbs-two span{
+  margin: 0 .5em 0 1em;
+  text-transform: uppercase;
 
+}
+#breadcrumbs-two span:hover{
+  color: #243b55 !important;
 
+}
+#breadcrumbs-two a{
+  background: #ddd;
+  padding: .4em 1em;
+  float: left;
+  text-decoration: none;
+  color: #444;
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+  position: relative;
+  transition:all 1s;
+}
+
+#breadcrumbs-two a:hover{
+  background: rgba(52, 180, 132, 1);
+  color: #243b55 !important;
+}
+
+#breadcrumbs-two a::before,
+#breadcrumbs-two a::after{
+  content:'';
+  position:absolute;
+  top: 0;
+  bottom: 0;
+  width: 1em;
+  background: #ddd;
+  transform: skew(-10deg);
+  transition:all 1s;
+}
+
+#breadcrumbs-two a::before{
+
+  left: -.5em;
+  border-radius: 5px 0 0 5px;
+  transition:all 1s;
+}
+
+#breadcrumbs-two a:hover::before{
+  background: rgba(52, 180, 132, 1);
+
+}
+
+#breadcrumbs-two a::after{
+  right: -.5em;
+  border-radius: 0 5px 5px 0;
+  transition:all 1s;
+}
+
+#breadcrumbs-two a:hover::after{
+  background: rgba(52, 180, 132, 1);
+}
+
+#breadcrumbs-two .current,
+#breadcrumbs-two .current:hover{
+  font-weight: bold;
+  background: none;
+}
+
+#breadcrumbs-two .current::after,
+#breadcrumbs-two .current::before{
+  content: normal;
+}
+
+.comments img{
+  width:auto;
+}
+.comments .comment-reply-title{
+  border: none;
+  font-size: 2em;
+  text-shadow: none;
+}
 
 
 
