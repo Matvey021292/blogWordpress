@@ -6,6 +6,7 @@
  * Template Name: Главная страница
  */
 get_header(); // подключаем header.php ?>
+
     <section>
         <div class="sale">
             <div class="wrapper" id="box">
@@ -34,6 +35,9 @@ get_header(); // подключаем header.php ?>
             </ul>
         </div>
         <h2 id="title"><?php the_title(); // заголовок поста ?></h2>
+
+            <?php get_template_part('searchform');//хлебные крошки ?>
+
         <div class="content postContent">
             <!-- Центальный блок -->
             <div class="blog-content ">
@@ -52,7 +56,6 @@ get_header(); // подключаем header.php ?>
 
                 <?php the_content(); // контент ?>
                 <div class="<?php content_class_by_sidebar(); // функция подставит класс в зависимости от того есть ли сайдбар, лежит в functions.php ?>">
-
 
                 </div>
                 <?php

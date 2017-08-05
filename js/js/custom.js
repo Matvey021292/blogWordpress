@@ -146,17 +146,28 @@ $(function(){
 })
 
 
+$(document).ready(function()  {
+    $(window).resize(function(){
+        var windSize =  $(window).width();
+        if (windSize<800) {
+            $('#asideRight').removeClass('effect6');
+            $('#asideRight').find('figure').removeClass('effect-roxy');
 
-$(window).resize(function(){
-    var windSize =  $(window).width();
-    if (windSize<800) {
-      $('#asideRight').removeClass('effect6');
-        $('#asideRight').find('figure').removeClass('effect-roxy');
-    }if(windSize<600){
-      $('#asideLeft').removeClass('effect6');
-      $('#asideLeft').find('figure').removeClass('effect-roxy');
-    }
-  });
+        }if(windSize<800){
+            $('#asideLeft').removeClass('effect6');
+            $('#asideLeft').find('figure').removeClass('effect-roxy');
+
+        }if(windSize>800){
+            $('#asideRight').addClass('effect6');
+            $('#asideRight').find('figure').addClass('effect-roxy');
+        }if(windSize>800) {
+            $('#asideLeft').addClass('effect6');
+            $('#asideLeft').find('figure').addClass('effect-roxy');
+        }
+
+        });
+});
+
 
 
 

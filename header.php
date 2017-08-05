@@ -146,6 +146,7 @@
          "Иной путь к сердцу Киева" ]'></span>
 </h1>
 </div>
+
 <div class="social-container">
     <div class="links">
         <a href="#" data-type="twitter" data-url="http://sonnyt.com/prettySocial" data-description="Custom share buttons for Pinterest, Twitter, Facebook and Google Plus." data-via="sonnyt" class="prettySocial fa fa-twitter"></a>

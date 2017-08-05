@@ -5,8 +5,10 @@
  * @subpackage your-clean-template-3
  */
 get_header(); // подключаем header.php ?>
+<?php get_template_part('breadcrumbs');?>
 <section>
-    <div class="content postSection pagePost postContent">
+    <?php get_template_part('searchform');//хлебные крошки ?>
+    <div class="content postSection postContent">
         <!-- Центальный блок -->
         <div class="blog-content " id="headfside">
 			<div class="blog-content-news  effect6 <?php content_class_by_sidebar(); // функция подставит класс в зависимости от того есть ли сайдбар, лежит в functions.php ?>">

@@ -4,9 +4,12 @@
  * @package WordPress
  * @subpackage your-clean-template-3
  */
-get_header(); // подключаем header.php ?> 
+get_header(); // подключаем header.php ?>
+<?php get_template_part('breadcrumbs');?>
+
 <section>
     <h2 id="title"><?php single_cat_title(); // название категории ?></h2>
+    <?php get_template_part('searchform');//хлебные крошки ?>
     <div class="content postSection postContent">
         <!-- Центальный блок -->
         <div class="blog-content " id="headfside">
@@ -20,6 +23,5 @@ get_header(); // подключаем header.php ?>
         <?php get_sidebar(); // подключаем sidebar.php ?>
 
         </div>
-    </div>
 </section>
 <?php get_footer(); // подключаем footer.php ?>

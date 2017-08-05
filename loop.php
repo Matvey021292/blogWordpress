@@ -32,7 +32,8 @@
     </ul>
 </div>
 		<p>
-			<?php the_content(''); // пост превью, до more ?>
+
+			<?php the_content('Читать...'); // пост превью, до more ?>
 		</p>
 
 </div>

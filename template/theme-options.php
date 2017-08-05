@@ -49,8 +49,8 @@ function custom_theme_options()
                 'id' => 'about',
                 'title' => 'о нас'
             ), array(
-                'id' => 'gallery',
-                'title' => 'Галерея'
+                'id' => 'text_sidebar',
+                'title' => 'сайтбар'
             ),
 
         ),
@@ -148,6 +148,22 @@ function custom_theme_options()
                 'type' => 'text',
                 'section' => 'header',
                 'condition' => 'header_feedback_on_off:is(on)',
+
+            ), array(
+                'id' => 'text_sidebar_left',
+                'label' => "Заголовок левого сайдбара",
+                'desc' => '',
+                'std' => '',
+                'type' => 'text',
+                'section' => 'text_sidebar',
+
+            ),array(
+                'id' => 'text_sidebar_right',
+                'label' => "Заголовок правого сайдбара",
+                'desc' => '',
+                'std' => '',
+                'type' => 'text',
+                'section' => 'text_sidebar',
 
             ),
 
