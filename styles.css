@@ -3615,9 +3615,9 @@ overflow: hidden}
       -ms-flex-pack: distribute;
       -webkit-justify-content: space-around;
       justify-content: space-around;
-      -ms-flex-line-pack: stretch;
-      -webkit-align-content: stretch;
-      align-content: stretch;
+      -ms-flex-line-pack: flex-start;
+      -webkit-align-content: flex-start;
+      align-content: flex-start;
       -ms-flex-align: stretch;
       -webkit-box-align: stretch;
       -webkit-align-items: stretch;
@@ -3643,8 +3643,8 @@ overflow: hidden}
         -webkit-order: 0;
         order: 0;
         -ms-flex-item-align: auto;
-        -webkit-align-self: stretch;
-        align-self: stretch;
+        -webkit-align-self: auto;
+        align-self: auto;
         display: -ms-flexbox;
         display: -webkit-box;
         display: -webkit-flex;

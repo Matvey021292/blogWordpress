@@ -671,3 +671,17 @@ function dp_recent_comments() {
 }
 //Коментарии
 
+function your_widget_display($args) {
+echo "<h5>Комментарии</h5>";
+   echo  dp_recent_comments();
+}
+
+wp_register_sidebar_widget(
+    'your_widget_1',        // ID виджета
+    'Виджет коментариев',           // Заголовок виджета
+    'your_widget_display',  // Функция обратного вызова
+    array(                  // Настройки
+        'description' => 'Виджет коментариев',
+    )
+);
+
