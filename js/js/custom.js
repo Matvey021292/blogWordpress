@@ -180,7 +180,10 @@ $(window).ready(function(){
 $(window).ready(function(){
     $('a').addClass('effect-shine');
   });
-
+$(document).ready(function () {
+    $('.buttom_row').find('a').addClass('button button--nuka');
+    return false;
+});
 (function() {
         var docElem = window.document.documentElement, didScroll, scrollPosition;
 
@@ -247,6 +250,8 @@ $(window).ready(function(){
 // gallery
 
     new CBPGridpageGallery( document.getElementById( 'grid-gallery' ) );
+
+
 
 
 

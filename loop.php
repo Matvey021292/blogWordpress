@@ -7,7 +7,7 @@
 ?>
 <div class="blog-content-news one_bloc  effect6 id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <?php // контэйнер с классами и id ?>
 <h3 ><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> <?php // заголовок поста и ссылка на его полное отображение (single.php) ?>
-<span class="category_post " id="breadcrumbs-two"><a href="<?php echo get_home_url();?>">Категории:</a> <?php the_category(',') ?></span> <?php // ссылки на категории в которых опубликован пост, через зпт ?>
+<span class="category_post " id="breadcrumbs-two"><a href="<?php echo get_home_url();?>">Категории:</a> <?php the_category(' ') ?></span> <?php // ссылки на категории в которых опубликован пост, через зпт ?>
 <div class="flex-container">
     <div class="grid">
 		<?php if ( has_post_thumbnail() ) { ?>

@@ -62,10 +62,13 @@ get_header(); // подключаем header.php ?>
 
                 if ($categories) {
                     foreach ($categories as $cat) {
+                        $category =$cat->taxonomy;
+                        $category.='/';
+                        $category.=strtolower($cat->slug);
                         ?>
-                        <h3><a href="<? echo $cat->slug;; ?>" class="effect-shine"><?php echo $cat->name; ?></a></h3>
+
                         <div class="blog-content-news one_bloc  effect6">
-                            <h3><a href="<? the_permalink(); ?>" class="effect-shine"><?php echo $cat->name; ?></a></h3>
+                            <h3><a href="<?php echo ($category); ?>" class="effect-shine"><?php echo $cat->name; ?></a></h3>
                             <div class="blog-content">
                                 <div class="blog-content-news">
                                     <div class="flex-container">

@@ -245,7 +245,9 @@ function sidebar_news_func($atts)
                     <div class="">
                         <figure class=>' . get_the_post_thumbnail() . '</figure>
                     </div>
+                   
                 </div>
+                
                 <a class="more " href="' . get_the_permalink() . '">Читать...</a>
             </div>';
         }
@@ -285,7 +287,7 @@ class Kama_Breadcrumbs {
 
     // Локализация
     static $l10n = array(
-        'home'       => 'Главная',
+        'home'       => '<i class="fa fa-home" aria-hidden="true"></i>Главная',
         'paged'      => 'Страница %d',
         '_404'       => 'Ошибка 404',
         'search'     => '',
@@ -672,7 +674,6 @@ function dp_recent_comments() {
 //Коментарии
 
 function your_widget_display($args) {
-echo "<h5>Комментарии</h5>";
    echo  dp_recent_comments();
 }
 
@@ -684,5 +685,5 @@ wp_register_sidebar_widget(
         'description' => 'Виджет коментариев',
     )
 );
-?>
+
 
