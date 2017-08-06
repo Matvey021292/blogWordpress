@@ -59,8 +59,11 @@ get_header(); // подключаем header.php ?>
 
                 </div>
                 <?php
+
                 if ($categories) {
-                    foreach ($categories as $cat) { ?>
+                    foreach ($categories as $cat) {
+                        ?>
+                        <h3><a href="<? echo $cat->slug;; ?>" class="effect-shine"><?php echo $cat->name; ?></a></h3>
                         <div class="blog-content-news one_bloc  effect6">
                             <h3><a href="<? the_permalink(); ?>" class="effect-shine"><?php echo $cat->name; ?></a></h3>
                             <div class="blog-content">

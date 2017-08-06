@@ -17,7 +17,6 @@ get_header(); // подключаем header.php ?>
 						<h3><?php the_title(); // заголовок поста ?></h3>
 						<div class="meta">
 							<p>Опубликовано: <?php the_time(get_option('date_format')." в ".get_option('time_format')); ?></p> <?php // дата и время создания ?>
-							<p>Автор:  <?php the_author_posts_link(); ?></p>
 							<p>Категории: <?php the_category(',') ?></p> <?php // ссылки на категории в которых опубликован пост, через зпт ?>
 							<?php the_tags('<p>Тэги: ', ',', '</p>'); // ссылки на тэги поста ?>
 						</div>

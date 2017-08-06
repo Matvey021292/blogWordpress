@@ -6,14 +6,28 @@
  */
 get_header(); // Подключаем header.php ?>
 <section>
-	<div class="container">
-		<div class="row">
-			<div class="<?php content_class_by_sidebar(); // функция подставит класс в зависимости от того есть ли сайдбар, лежит в functions.php ?>">
-				<h1>Ой, это 404!</h1>
-				<p>Блаблабла 404 Блаблабла</p>
-			</div>
-			<?php get_sidebar(); // подключаем sidebar.php ?>
-		</div>
-	</div>
+    <div class=" page404" >
+        <div class="wrap-search">
+            <div class="content-search">
+                <div class="logo">
+                    <h1><a href="#"><img src="<?php echo get_template_directory_uri() ?>/img/logo1.png"/></a></h1>
+                    <span><img src="<?php echo get_template_directory_uri() ?>/img/signal.png"/>Oops! The Page you requested was not found!</span>
+                </div>
+
+                <div class="buttom" style="background:url(<?php echo get_template_directory_uri() ?>/img/bg2.png) no-repeat 100% 0%;">
+                    <div class="seach_bar">
+                        <p>you can go to <span><a href="<?php echo get_home_url(); ?>">home</a></span> page or search here</p>
+
+                        <div class="search_box">
+                            <form action="<?php echo home_url( '/' ); ?>">
+                                <input type="text" value="Search" name="s"><input style="background: url(<?php echo get_template_directory_uri() ?>/img/search.png) no-repeat 0px 1px;" type="submit" value="" >
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 </section>
+
 <?php get_footer(); // подключаем footer.php ?>
