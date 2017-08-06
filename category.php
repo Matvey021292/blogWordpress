@@ -12,7 +12,7 @@ get_header(); // подключаем header.php ?>
     <?php get_template_part('searchform');//хлебные крошки ?>
     <div class="content postSection postContent">
         <!-- Центальный блок -->
-        <div class="blog-content " id="headfside">
+        <div class="blog-content center" id="headfside">
 
 				<?php if (have_posts()) : while (have_posts()) : the_post(); // если посты есть - запускаем цикл wp ?>
 					<?php get_template_part('loop'); // для отображения каждой записи берем шаблон loop.php ?>

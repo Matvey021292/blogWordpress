@@ -5,7 +5,7 @@
  * @subpackage your-clean-template-3
  */
 ?>
-<div class="blog-content-news  effect6 id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <?php // контэйнер с классами и id ?>
+<div class="blog-content-news one_bloc  effect6 id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <?php // контэйнер с классами и id ?>
 <h3 ><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3> <?php // заголовок поста и ссылка на его полное отображение (single.php) ?>
 <span class="category_post">Категории: <?php the_category(',') ?></span> <?php // ссылки на категории в которых опубликован пост, через зпт ?>
 <div class="flex-container">

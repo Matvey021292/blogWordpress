@@ -40,7 +40,7 @@ get_header(); // подключаем header.php ?>
 
         <div class="content postContent">
             <!-- Центальный блок -->
-            <div class="blog-content ">
+            <div class="blog-content center">
                 <?php
                 $art_cat = array(
                     'orderby' => 'name',

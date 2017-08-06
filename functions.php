@@ -684,4 +684,5 @@ wp_register_sidebar_widget(
         'description' => 'Виджет коментариев',
     )
 );
+?>
 

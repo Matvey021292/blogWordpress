@@ -10,8 +10,8 @@ get_header(); // подключаем header.php ?>
     <?php get_template_part('searchform');//хлебные крошки ?>
     <div class="content postSection postContent">
         <!-- Центальный блок -->
-        <div class="blog-content " id="headfside">
-			<div class="blog-content-news  effect6 <?php content_class_by_sidebar(); // функция подставит класс в зависимости от того есть ли сайдбар, лежит в functions.php ?>">
+        <div class="blog-content center" id="headfside">
+			<div class="blog-content-news one_bloc  effect6 <?php content_class_by_sidebar(); // функция подставит класс в зависимости от того есть ли сайдбар, лежит в functions.php ?>">
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); // старт цикла ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <?php // контэйнер с классами и id ?>
 						<h3><?php the_title(); // заголовок поста ?></h3>
