@@ -249,7 +249,7 @@ $(document).ready(function () {
       })();
 // gallery
 
-    new CBPGridpageGallery( document.getElementById( 'grid-gallery' ) );
+
 
 
 

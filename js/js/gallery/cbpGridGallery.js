@@ -362,3 +362,4 @@
 	window.CBPGridpageGallery = CBPGridpageGallery;
 
 })( window );
+new CBPGridpageGallery( document.getElementById( 'grid-gallery' ) );

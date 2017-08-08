@@ -45,14 +45,7 @@
             <li class="ot-letter-bottom"><span data-letter="V">V</span></li>
         </ul>
     </div>
-    <div class="social-container">
-        <div class="links">
-            <a href="#" data-type="twitter" data-url="http://sonnyt.com/prettySocial" data-description="Custom share buttons for Pinterest, Twitter, Facebook and Google Plus." data-via="sonnyt" class="prettySocial fa fa-twitter-square"></a>
-            <a href="#" data-type="facebook" data-url="http://sonnyt.com/prettySocial" data-title="prettySocial - custom social share buttons." data-description="Custom share buttons for Pinterest, Twitter, Facebook and Google Plus." data-media="http://sonnyt.com/assets/imgs/prettySocial.png" class="prettySocial fa fa-facebook-square"></a>
-            <a href="#" data-type="googleplus" data-url="http://sonnyt.com/prettySocial" data-description="Custom share buttons for Pinterest, Twitter, Facebook and Google Plus." class="prettySocial fa fa-google-plus-square"></a>
-            <a href="#" data-type="pinterest" data-url="http://sonnyt.com/prettySocial" data-description="Custom share buttons for Pinterest, Twitter, Facebook and Google Plus." data-media="http://sonnyt.com/assets/imgs/prettySocial.png" class="prettySocial fa fa-pinterest-square"></a>
-        </div>
-    </div>
+
 	</footer>
 	</footer>
 <?php wp_footer(); // необходимо для работы плагинов и функционала  ?>

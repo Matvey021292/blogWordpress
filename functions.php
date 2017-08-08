@@ -152,16 +152,21 @@ if (!function_exists('add_scripts')) { // если ф-я уже есть в до
         wp_enqueue_script('Modernizm', get_template_directory_uri() . '/js/js/components/modernizr.js', '', '', true); //lloader
         wp_enqueue_script('jquery3', '//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', '', '', true); // добавляем свой
         wp_enqueue_script('Social', get_template_directory_uri() . '/js/js/jquery.prettySocial.min.js', '', '', true); //lloader
-        wp_enqueue_script('SocialIcon', get_template_directory_uri() . '/js/js/components/socialicon.js', '', '', true); //lloader
         wp_enqueue_script('textEfext', get_template_directory_uri() . '/js/js/components/textEfext.js', '', '', true); //lloader
         wp_enqueue_script('pocupmod', get_template_directory_uri() . '/js/js/modal/modernizr.custom.js', '', '', true); //Popup
         wp_enqueue_script('pocupcus', get_template_directory_uri() . '/js/js/modal/classie.js', '', '', true); //Popup
         wp_enqueue_script('pocup', get_template_directory_uri() . '/js/js/modal/uiMorphingButton_fixed.js', '', '', true); //Popup
-        wp_enqueue_script('gallerymodernizr', get_template_directory_uri() . '/js/js/gallery/modernizr.custom.js', '', '', true); //gallery
-        wp_enqueue_script('galleryimagesloaded', get_template_directory_uri() . '/js/js/gallery/imagesloaded.pkgd.min.js', '', '', true); //gallery
-        wp_enqueue_script('gallerymasonry', get_template_directory_uri() . '/js/js/gallery/masonry.pkgd.min.js', '', '', true); //gallery
-        wp_enqueue_script('galleryclassie', get_template_directory_uri() . '/js/js/gallery/classie.js', '', '', true); //gallery
-        wp_enqueue_script('gallery', get_template_directory_uri() . '/js/js/gallery/cbpGridGallery.js', '', '', true); //gallery
+        if( is_front_page() ){
+            wp_enqueue_script('gallerymodernizr', get_template_directory_uri() . '/js/js/gallery/modernizr.custom.js', '', '', true); //gallery
+
+            wp_enqueue_script('galleryimagesloaded', get_template_directory_uri() . '/js/js/gallery/imagesloaded.pkgd.min.js', '', '', true); //gallery
+
+            wp_enqueue_script('gallerymasonry', get_template_directory_uri() . '/js/js/gallery/masonry.pkgd.min.js', '', '', true); //gallery
+            wp_enqueue_script('galleryclassie', get_template_directory_uri() . '/js/js/gallery/classie.js', '', '', true); //gallery
+
+            wp_enqueue_script('gallery', get_template_directory_uri() . '/js/js/gallery/cbpGridGallery.js', '', '', true); //gallery
+
+        }
         wp_enqueue_script('searchcustom', get_template_directory_uri() . '/js/js/search/modernizr.customSearch.js', '', '', true); //gallery
         wp_enqueue_script('search', get_template_directory_uri() . '/js/js/search/classieSearch.js', '', '', true); //gallery
         wp_enqueue_script('custom', get_template_directory_uri() . '/js/js/custom.js', '', '', true); //lloader
@@ -225,44 +230,6 @@ remove_filter('the_content', 'wpautop'); // Отключаем автоформ�
 remove_filter('the_excerpt', 'wpautop'); // Отключаем автоформатирование в кратком(анонсе) посте
 remove_filter('comment_text', 'wpautop'); // Отключаем автоформатирование в комментариях
 
-function sidebar_news_func($atts)
-{
-    wp_reset_query();
-    $art_posts = array(
-        'orderby' => 'date',
-        'order' => 'ASC',
-        'posts_per_page' => 5,
-        'post_type' => 'post',
-    );
-    $query = new WP_Query($art_posts);
-    $output = "<h5 class='titleaside'>{$atts['title']}</h5>";
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $output .= '<div class="blog-content-news  ">';
-            $output .= '<h3 ><a  href="' . get_the_permalink() . '">' . get_the_title() . '</a></h3>
-                <div class="flex-container">
-                    <div class="">
-                        <figure class=>' . get_the_post_thumbnail() . '</figure>
-                    </div>
-                   
-                </div>
-                
-                <a class="more " href="' . get_the_permalink() . '">Читать...</a>
-            </div>';
-        }
-    }
-    wp_reset_postdata();
-    ?>
-
-    <?php
-    return $output;
-}
-
-add_shortcode('sidebar_news', 'sidebar_news_func');
-
-
-
 //breadcrumbs
 
 
@@ -287,7 +254,7 @@ class Kama_Breadcrumbs {
 
     // Локализация
     static $l10n = array(
-        'home'       => '<i class="fa fa-home" aria-hidden="true"></i>Главная',
+        'home'       => '<i class="fa fa-home" aria-hidden="true"></i> Главная',
         'paged'      => 'Страница %d',
         '_404'       => 'Ошибка 404',
         'search'     => '',
