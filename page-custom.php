@@ -44,7 +44,7 @@ get_header(); // подключаем header.php ?>
                 <?php
                 $art_cat = array(
                     'orderby' => 'name',
-                    'order' => 'ASC',
+                    'order' => '123',
                     'hide_empty' => 1,
                     'exclude' => '',
                     'include' => '',
@@ -70,17 +70,19 @@ get_header(); // подключаем header.php ?>
                         <div class="blog-content-news one_bloc  effect6">
                             <h3><a href="<?php echo ($category); ?>" class="effect-shine"><?php echo $cat->name; ?></a></h3>
                             <div class="blog-content">
+
+
                                 <div class="blog-content-news">
                                     <div class="flex-container">
                                         <div class="grid">
                                             <figure class="effect-roxy">
-
-
                                                 <?php $art_posts = array(
                                                     'orderby' => 'name',
-                                                    'order' => 'ASC',
+                                                    'order' => 'ABC',
+                                                    'orderby'=>'date',
                                                     'posts_per_page' => 1,
                                                     'post_type' => 'post',
+                                                    'exclude' => '',
                                                     'post_status' => 'publish',
                                                     'cat' => $cat->cat_ID,
 
@@ -98,8 +100,7 @@ get_header(); // подключаем header.php ?>
                                             </figure>
                                         </div>
                                         <ul class="social-logo-icon">
-                                            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook-square"
-                                                                                       aria-hidden="true"></i></i></a>
+                                            <li><a href="https://www.facebook.com/"><i class="fa fa-facebook-square" aria-hidden="true"></i></i></a>
                                             </li>
                                             <li><a href=""><i class="fa fa-foursquare" aria-hidden="true"></i></a></li>
                                             <li><a href=""><i class="fa fa-map-marker" aria-hidden="true"></i></a></li>
@@ -115,14 +116,17 @@ get_header(); // подключаем header.php ?>
                                         <?php the_content('Читать....') ?>
                                         <?php $art_posts_news = array(
                                             'orderby' => 'name',
-                                            'order' => 'ASC',
-                                            'posts_per_page' => 3,
+                                            'order' => 'DESC',
+                                            'posts_per_page' => 4,
+                                            'orderby'=>'date',
                                             'post_type' => 'post',
                                             'post_status' => 'publish',
+                                            'exclude'=> '',
                                             'cat' => $cat->cat_ID,
 
                                             // полный список параметров смотрите в описании функции http://wp-kama.ru/function/get_terms
                                         );
+
                                         $query_new = new WP_Query($art_posts_news);
 
                                         ?>
@@ -131,12 +135,15 @@ get_header(); // подключаем header.php ?>
                                 <div class="blog-content">
                                     <?php if ($query_new->have_posts()) while ($query_new->have_posts()) : $query_new->the_post(); // старт цикла ?>
                                         <div class="blog-content-news effect6">
+                                            <p>Опубликовано: <?php the_time(get_option('date_format')); ?></p> <?php // дата и время создания ?>
+
                                             <div class="flex-container">
                                                 <a href="<?php the_permalink(); ?>" class="img"
                                                    id="img_news">    <?php the_post_thumbnail('full') ?></a>
                                                 <h4><a class="effect-shine"
                                                        href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                             </div>
+                                            <p style="padding-right: 4px;"><?php comments_number(); ?></p>
                                         </div>
                                     <?php endwhile;
                                     wp_reset_postdata(); // конец цикла ?>

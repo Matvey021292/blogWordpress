@@ -645,45 +645,4 @@ class Kama_Breadcrumbs {
 
 }
 
-//Коментарии
-function dp_recent_comments() {
-    $comment_len = 100;
-    $comments = get_comments('number=10');
-    if ($comments) {
-        foreach ($comments as $comment) {
-            //ob_start();
-            ?>
-            <li>
-
-                <div style="float: left;"><?php echo get_avatar($comment,$size='40' ); ?></div>
-
-                <a href="<?php echo get_permalink( $comment->comment_post_ID ) . '#comment-' . $comment->comment_ID; ?>"><?php echo $comment->comment_author; ?>:</a>
-
-                <p>                <?php echo strip_tags(substr(apply_filters('get_comment_text', $comment->comment_content), 0, $comment_len)); ?>...
-                </p>
-
-            </li>
-            <?php
-            //ob_end_flush();
-        }
-    } else {
-        echo "<li>No comments</li>";
-    }
-
-}
-//Коментарии
-
-function your_widget_display($args) {
-   echo  dp_recent_comments();
-}
-
-wp_register_sidebar_widget(
-    'your_widget_1',        // ID виджета
-    'Виджет коментариев',           // Заголовок виджета
-    'your_widget_display',  // Функция обратного вызова
-    array(                  // Настройки
-        'description' => 'Виджет коментариев',
-    )
-);
-
 

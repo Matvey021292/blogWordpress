@@ -11,7 +11,7 @@
     <i class="fa fa-times closeaside" aria-hidden="true"></i>
 <?php if (is_active_sidebar( 'Sidebar' )) { // если в сайдбаре есть что выводить ?>
     <h5 class="sidebat_title "><?php echo ot_get_option( 'text_sidebar_left'); ?></h5>
-
+    <?php echo do_shortcode("[pt_view id=a0b6b7d8ve]"); ?>
 	<?php dynamic_sidebar('Sidebar'); // выводим сайдбар, имя определено в functions.php ?>
 
 

@@ -25,8 +25,8 @@ get_header(); // подключаем header.php ?>
                             <figure class="effect-zoe">
                                 <?php the_post_thumbnail('full'); ?>
                             </figure>
+                            <?php if(function_exists('the_ratings')) { the_ratings(); } ?>
                             <p>Опубликовано: <?php the_time(get_option('date_format')." в ".get_option('time_format')); ?></p> <?php // дата и время создания ?>
-
                         <?php } ?>
                             </div>
                         </div>
@@ -41,8 +41,10 @@ get_header(); // подключаем header.php ?>
 				<?php if (comments_open() || get_comments_number()) comments_template('', true); // если комментирование открыто - мы покажем список комментариев и форму, если закрыто, но кол-во комментов > 0 - покажем только список комментариев ?>
 			</div>
 
+
 		</div>
         <?php get_sidebar(); // подключаем sidebar.php ?>
 	</div>
+    <?php echo do_shortcode("[pt_view id=bd4705dt5y]"); ?>
 </section>
 <?php get_footer(); // подключаем footer.php ?>
