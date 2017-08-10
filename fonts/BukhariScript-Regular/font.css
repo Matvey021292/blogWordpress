@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'BukhariScript-Regular';
+  src: url('fonts/BukhariScript-Regular/BukhariScript-Regular.woff') format('woff'),
+       url('fonts/BukhariScript-Regular/BukhariScript-Regular.ttf') format('truetype'),
+       url('fonts/BukhariScript-Regular/BukhariScript-Regular.svg#BukhariScript-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+

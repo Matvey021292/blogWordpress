@@ -112,12 +112,12 @@ get_header(); // подключаем header.php ?>
                                         <h4><a class="effect-shine"
                                                href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                     </article>
-                                    <p><?php $more = 0; ?>
-                                        <?php the_content('Читать....') ?>
-                                        <?php $art_posts_news = array(
+                                    <a href="<?php the_permalink();?>"><?php the_truncated_post( 200 );?></a>
+
+                                    <?php $art_posts_news = array(
                                             'orderby' => 'name',
                                             'order' => 'DESC',
-                                            'posts_per_page' => 4,
+                                            'posts_per_page' => 3,
                                             'orderby'=>'date',
                                             'post_type' => 'post',
                                             'post_status' => 'publish',
@@ -140,8 +140,6 @@ get_header(); // подключаем header.php ?>
                                             <div class="flex-container">
                                                 <a href="<?php the_permalink(); ?>" class="img"
                                                    id="img_news">    <?php the_post_thumbnail('full') ?></a>
-                                                <h4><a class="effect-shine"
-                                                       href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                             </div>
                                             <p style="padding-right: 4px;"><?php comments_number(); ?></p>
                                         </div>
@@ -150,8 +148,6 @@ get_header(); // подключаем header.php ?>
                                 </div>
 
                             </div>
-
-
                             <?php endwhile;
                             wp_reset_postdata(); // конец цикла
                             ?>

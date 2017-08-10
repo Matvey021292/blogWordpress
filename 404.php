@@ -28,6 +28,7 @@ get_header(); // Подключаем header.php ?>
             </div>
         </div>
         </div>
+
 </section>
 
 <?php get_footer(); // подключаем footer.php ?>

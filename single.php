@@ -14,7 +14,7 @@ get_header(); // подключаем header.php ?>
 			<div class="blog-content-news one_bloc  effect6 <?php content_class_by_sidebar(); // функция подставит класс в зависимости от того есть ли сайдбар, лежит в functions.php ?>">
 				<?php if ( have_posts() ) while ( have_posts() ) : the_post(); // старт цикла ?>
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> <?php // контэйнер с классами и id ?>
-						<h3><?php the_title(); // заголовок поста ?></h3>
+						<h3><a href="<?php the_permalink();?>"><?php the_title(); // заголовок поста ?></a></h3>
 						<div class="meta">
 							<p id="breadcrumbs-two" class="category_post "><a>Категории:</a> <?php the_category(' ') ?></p> <?php // ссылки на категории в которых опубликован пост, через зпт ?>
 							<?php the_tags('<p>Тэги: ', ',', '</p>'); // ссылки на тэги поста ?>
@@ -47,4 +47,5 @@ get_header(); // подключаем header.php ?>
 	</div>
     <?php echo do_shortcode("[pt_view id=bd4705dt5y]"); ?>
 </section>
+
 <?php get_footer(); // подключаем footer.php ?>

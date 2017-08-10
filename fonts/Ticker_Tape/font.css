@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'TickerTape';
+  src: url('fonts/Ticker_Tape/TickerTape.woff') format('woff'),
+       url('fonts/Ticker_Tape/TickerTape.ttf') format('truetype'),
+       url('fonts/Ticker_Tape/TickerTape.svg#TickerTape') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ticker_Tape';
+  src: url('fonts/Ticker_Tape/Ticker_Tape.eot');
+  src: url('fonts/Ticker_Tape/Ticker_Tape.woff2') format('woff2'),
+       url('fonts/Ticker_Tape/Ticker_Tape.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

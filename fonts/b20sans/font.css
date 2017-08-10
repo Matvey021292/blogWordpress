@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'B20Sans';
+  src: url('B20Sans.woff') format('woff'),
+       url('B20Sans.ttf') format('truetype'),
+       url('B20Sans.svg#B20Sans') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'b20sans';
+  src: url('b20sans.eot');
+  src: url('b20sans.woff2') format('woff2'),
+       url('b20sans.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

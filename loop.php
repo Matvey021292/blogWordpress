@@ -33,7 +33,8 @@
 </div>
 		<p>
 
-			<?php the_content('Читать...'); // пост превью, до more ?>
-		</p>
+            <a href="<?php the_permalink();?>"><?php the_truncated_post( 200 );?></a>
+
+        </p>
 
 </div>

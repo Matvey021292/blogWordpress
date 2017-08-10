@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'RussoSansBold';
+  src: url('/RussoSansBold.eot');
+  src: url('/RussoSansBold.woff2') format('woff2'),
+       url('/RussoSansBold.woff') format('woff'),
+       url('/RussoSansBold.ttf') format('truetype'),
+       url('/RussoSansBold.svg#RussoSansBold') format('svg'),
+       url('/RussoSansBold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

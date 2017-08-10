@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'ArianAMUMono-Bold';
+  src: url('fonts/arnamu_mono/ArianAMUMono-Bold.woff') format('woff'),
+       url('fonts/arnamu_mono/ArianAMUMono-Bold.ttf') format('truetype'),
+       url('fonts/arnamu_mono/ArianAMUMono-Bold.svg#ArianAMUMono-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'arnamu_mono_bold';
+  src: url('fonts/arnamu_mono/arnamu_mono_bold.eot');
+  src: url('fonts/arnamu_mono/arnamu_mono_bold.woff2') format('woff2'),
+       url('fonts/arnamu_mono/arnamu_mono_bold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

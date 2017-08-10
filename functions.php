@@ -210,7 +210,8 @@ function load_fonts()
     wp_enqueue_style('et-googleFontsJuru');
     wp_register_style('et-googleFontsRobo',
         'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
-    wp_enqueue_style('et-googleFontsRobo');
+    wp_register_style('et-googleFonts',
+        'https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&subset=cyrillic,latin-ext,vietnamese');
 
 }
 
@@ -612,4 +613,8 @@ class Kama_Breadcrumbs {
 
 }
 
+function the_truncated_post($symbol_amount) {
+    $filtered = strip_tags( preg_replace('@<style[^>]*?>.*?</style>@si', '', preg_replace('@<script[^>]*?>.*?</script>@si', '', apply_filters('the_content', get_the_content()))) );
+    echo substr($filtered, 0, strrpos(substr($filtered, 0, $symbol_amount), ' ')) . '...';
+}
 
