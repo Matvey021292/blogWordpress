@@ -4,8 +4,12 @@
  * @package WordPress
  * @subpackage your-clean-template-3
  */
-get_header(); // подключаем header.php ?> 
+get_header(); // подключаем header.php ?>
+<?php if(have_posts()){ ?>
+
+
 <section>
+
 	<div class="container">
 		<div class="row">
 			<div class="<?php content_class_by_sidebar(); // функция подставит класс в зависимости от того есть ли сайдбар, лежит в functions.php ?>">
@@ -26,4 +30,5 @@ get_header(); // подключаем header.php ?>
 		</div>
 	</div>
 </section>
+    <?php }else include "404.php"?>
 <?php get_footer(); // подключаем footer.php ?>

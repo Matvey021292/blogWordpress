@@ -45,7 +45,9 @@ get_header(); // подключаем header.php ?>
 		</div>
         <?php get_sidebar(); // подключаем sidebar.php ?>
 	</div>
+    <div class="footer_news_post">
     <?php echo do_shortcode("[pt_view id=bd4705dt5y]"); ?>
+    </div>
 </section>
 
 <?php get_footer(); // подключаем footer.php ?>

@@ -46,12 +46,13 @@ get_header(); // подключаем header.php ?>
                     'orderby' => 'name',
                     'order' => '123',
                     'hide_empty' => 1,
-                    'exclude' => '',
+                    'exclude' => '17',
                     'include' => '',
                     'taxonomy' => 'category',
                     // полный список параметров смотрите в описании функции http://wp-kama.ru/function/get_terms
                 );
                 $categories = get_categories($art_cat);
+
                 ?>
 
                 <?php the_content(); // контент ?>
@@ -89,6 +90,7 @@ get_header(); // подключаем header.php ?>
                                                     // полный список параметров смотрите в описании функции http://wp-kama.ru/function/get_terms
                                                 );
                                                 $query = new WP_Query($art_posts);
+
                                                 global $more;
 
                                                 ?>
@@ -99,6 +101,7 @@ get_header(); // подключаем header.php ?>
                                                 <?php the_post_thumbnail('full') ?>
                                             </figure>
                                         </div>
+
                                         <ul class="social-logo-icon">
                                             <li><a href="https://www.facebook.com/"><i class="fa fa-facebook-square" aria-hidden="true"></i></i></a>
                                             </li>
@@ -166,15 +169,26 @@ get_header(); // подключаем header.php ?>
     </section>
     <section>
         <div class="column_about">
+            <?php $the_quer = new WP_Query('p=381'); ?>
+            <?php while  ($the_quer->have_posts() ) : $the_quer->the_post(); ?>
+
             <div class="grid">
                 <figure class="effect-layla">
-                    <img style="background-image:url('<?php echo ot_get_option( 'about_logo_upload'); ?>')">
+                    <?php the_post_thumbnail('full') ?>
                     <figcaption>
-                        <h2><?php echo ot_get_option( 'about_text_head'); ?></h2>
-                        <p><?php echo ot_get_option( 'about_text_info'); ?></p>
-
+                    <h2><?php the_title(); ?></h2>
+                    <p><?php the_content(); ?></p>
                     </figcaption>
-                </figure></div>
+                </figure>
+            </div>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata();?>
+
+
+
+
+
+
         </div>
 
     </section>
